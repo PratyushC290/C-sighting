@@ -3,29 +3,29 @@
 
 #define MAX_VERTICES 100
 
-// --------- Structures ---------
 
-// Adjacency list node
+
+
 typedef struct Node {
     int vertex;
     struct Node* next;
 } Node;
 
-// Graph structure
+
 typedef struct Graph {
     int numVertices;
     Node** adjLists;
     int* visited;
 } Graph;
 
-// Queue for BFS
+
 typedef struct Queue {
     int items[MAX_VERTICES];
     int front;
     int rear;
 } Queue;
 
-// --------- Queue Functions ---------
+
 
 Queue* createQueue() {
     Queue* q = malloc(sizeof(Queue));
@@ -102,7 +102,7 @@ void printGraph(Graph* graph) {
     }
 }
 
-// --------- BFS ---------
+
 
 void bfs(Graph* graph, int startVertex) {
     Queue* q = createQueue();
@@ -132,7 +132,7 @@ void bfs(Graph* graph, int startVertex) {
     printf("\n");
 }
 
-// --------- DFS ---------
+
 
 void dfs(Graph* graph, int vertex) {
     graph->visited[vertex] = 1;
@@ -149,7 +149,7 @@ void dfs(Graph* graph, int vertex) {
     }
 }
 
-// --------- Reset Visited Array ---------
+
 
 void resetVisited(Graph* graph) {
     for (int i = 0; i < graph->numVertices; i++) {
@@ -157,7 +157,7 @@ void resetVisited(Graph* graph) {
     }
 }
 
-// --------- Main ---------
+
 
 int main() {
     int V = 6;
