@@ -3,7 +3,7 @@
 
 #define MAX_VERTICES 100
 
-
+// undirected graph
 
 
 typedef struct Node {
@@ -55,7 +55,7 @@ int dequeue(Queue* q) {
     return item;
 }
 
-// --------- Graph Functions ---------
+
 
 Node* createNode(int vertex) {
     Node* newNode = malloc(sizeof(Node));
@@ -79,12 +79,12 @@ Graph* createGraph(int vertices) {
 }
 
 void addEdge(Graph* graph, int src, int dest) {
-    // src -> dest
+
     Node* newNode = createNode(dest);
     newNode->next = graph->adjLists[src];
     graph->adjLists[src] = newNode;
 
-    // dest -> src (undirected)
+
     newNode = createNode(src);
     newNode->next = graph->adjLists[dest];
     graph->adjLists[dest] = newNode;
